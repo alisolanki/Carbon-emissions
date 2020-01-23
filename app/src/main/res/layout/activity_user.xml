@@ -92,12 +92,4 @@
         app:layout_constraintTop_toBottomOf="@+id/button_calender"
         app:layout_constraintVertical_bias="0.25" />
 
-    <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:background="@color/whitish"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
 </androidx.constraintlayout.widget.ConstraintLayout>
