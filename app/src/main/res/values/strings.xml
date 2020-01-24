@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">Hack 2.0</string>
+    <string name="title">
+        Save The World\n
+        One Step\n
+        At a Time
+    </string>
 </resources>
