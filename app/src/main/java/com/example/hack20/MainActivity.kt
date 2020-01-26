@@ -13,7 +13,12 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         button_login.setOnClickListener {
-            var intent = Intent(this, CalenderActivity::class.java)
+            var intent = Intent(this, UserActivity::class.java)
+            startActivity(intent)
+            finish()
+        }
+        button_signup.setOnClickListener {
+            var intent = Intent(this, RegisterActivity::class.java)
             startActivity(intent)
         }
     }

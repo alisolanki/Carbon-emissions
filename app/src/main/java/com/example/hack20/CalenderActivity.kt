@@ -5,10 +5,14 @@ import android.os.Bundle
 import android.view.Display
 import android.view.View
 import android.widget.AdapterView
+import android.widget.CalendarView
 import android.widget.ListView
 import android.widget.Toast
+import kotlinx.android.synthetic.main.activity_calender.*
+import kotlinx.android.synthetic.main.activity_calender.view.*
 
 class CalenderActivity : AppCompatActivity() {
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -18,17 +22,24 @@ class CalenderActivity : AppCompatActivity() {
 
         var list = mutableListOf<Model>()
 
-        list.add(Model( "Travel", "50"))
-        list.add(Model("Planted a tree", "100"))
+        val calendarView = findViewById<CalendarView>(R.id.calendarView)
+        calendarView.setOnDateChangeListener { view, year, month, day ->
+            //list.add(Model("year", "day.toString()" ))
+            //list.add(Model( "date", "50"))
+            //list.add(Model("Planted a tree", "100"))
 
-        listView.adapter = MyAdapter(this, R.layout.row, list )
+            list.add(Model("Travel", "50"))
+            list.add(Model("Planted a tree", "100"))
 
-        listView.setOnItemClickListener{parent:AdapterView<*>, view:View, position:Int, id:Long ->
-            if (position==0){
-                Toast.makeText(this@CalenderActivity, "You clicked on Travel!", Toast.LENGTH_LONG).show()
-            }
-            if (position==1){
-                Toast.makeText(this@CalenderActivity, "You clicked on Planted a Tree!", Toast.LENGTH_LONG).show()
+            listView.adapter = MyAdapter(this, R.layout.row, list)
+
+            listView.setOnItemClickListener { parent: AdapterView<*>, view: View, position: Int, id: Long ->
+                if (position == 0) {
+                    Toast.makeText(this@CalenderActivity, day.toString() + "/" + (month+1).toString() + "/" + year.toString(), Toast.LENGTH_SHORT).show()
+                }
+                if (position == 1) {
+                    Toast.makeText(this@CalenderActivity, "You clicked on Planted a Tree!", Toast.LENGTH_LONG).show()
+                }
             }
         }
     }
